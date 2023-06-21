@@ -1,10 +1,22 @@
 #include "main.h"
 /**
-*_islower - check for lower case letters
-*@c: input.
-*Return: 1 or 0
+*print_alphabet_x10 - print alpha x10
+*Return: no return value.
 */
-int _islower(int c)
+void print_alphabet_x10(void)
 {
-return (c >= 97 && c <= 122);
+char alphabet[26] = "abcdefghijklmnopqrstuvwxyz";
+int i, j;
+i = 0;
+while (i < 10)
+{
+j = 0;
+while (j < 26)
+{
+_putchar(alphabet[j]);
+j++;
+}
+_putchar('\n');
+i++;
+}
 }
