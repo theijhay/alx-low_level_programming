@@ -1,17 +1,10 @@
 #include "main.h"
 /**
- * print_alphabet - print alphabet in lowercase
- *
- * Return: Alwyas 0 (success)
- */
-void print_alphabet(void)
+*_islower - check for lower case letters
+*@c: input.
+*Return: 1 or 0
+*/
+int _islower(int c)
 {
-	for (int i = 0; i < 10; i++)
-	{
-	for (char c = 'a'; c <= 'z'; c++)
-	{
-	_putchar(c);
-	}
-	_putchar('\n');
-	}
+return (c >= 97 && c <= 122);
 }
