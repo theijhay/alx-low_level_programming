@@ -8,12 +8,9 @@
  */
 void print_times_table(int n)
 {
-	if (n > 15 || n < 0)
-	{
-	return;
-	}
-	for (int i = 0; i <= 15; i++)
-	{
-	printf("%d * %d = %d\n", n, i, n * i);
-	}
+	print_times_table(10);
+
+	print_times_table(-10);
+
+	print_times_table(16);
 }
