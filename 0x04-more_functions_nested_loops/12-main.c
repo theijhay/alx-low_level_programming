@@ -2,32 +2,24 @@
 
 
 /**
- * print_number - prints an integer.
- * @n: input integer.
- * Return: no return.
+ * print_number - prints an integer
+ * @n: integer to be printed
  */
 void print_number(int n)
 {
-if (n == 0)
+unsigned int n1;
+if (n < 0)
 {
-_putchar('0');
-return;
-}
-int negative = n < 0;
-if (negative)
-{
+n1 = -n;
 _putchar('-');
-n = -n;
 }
-int digits[10];
-int i = 0;
-while (n > 0)
+else
 {
-digits[i++] = n % 10;
-n /= 10;
+n1 = n;
 }
-for (int j = i - 1; j >= 0; j--)
+if (n1 / 10)
 {
-_putchar(digits[j] + '0');
+print_number(n1 / 10);
 }
-}
+_putchar((n1 % 10) + '0');
+
