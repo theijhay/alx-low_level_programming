@@ -42,7 +42,6 @@ void check_elf(unsigned char *e_ident)
 /**
  * print_magic - Prints the magic numbers of an ELF header.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
  * Description: Magic numbers are separated by spaces.
  */
 void print_magic(unsigned char *e_ident)
@@ -230,9 +229,9 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
-		e_entry = ((e_entry << 8) & 0xFF00FF00) |
-			  ((e_entry >> 8) & 0xFF00FF);
-		e_entry = (e_entry << 16) | (e_entry >> 16);
+	e_entry = ((e_entry << 8) & 0xFF00FF00) |
+	  ((e_entry >> 8) & 0xFF00FF);
+	e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
 
 	if (e_ident[EI_CLASS] == ELFCLASS32)
@@ -250,20 +249,20 @@ void close_elf(int elf)
 {
 	if (close(elf) == -1)
 	{
-		dprintf(STDERR_FILENO,
-			"Error: Can't close fd %d\n", elf);
-		exit(98);
+	dprintf(STDERR_FILENO,
+	"Error: Can't close fd %d\n", elf);
+	exit(98);
 	}
 }
 
 /**
  * main - Displays the information contained in the
- *        ELF header at the start of an ELF file.
+ * ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- * Return: 0 on success.
+ * Return: Always success.
  * Description: If the file is not an ELF File or
- *              the function fails - exit code 98.
+ * the function fails - exit code 98.
  */
 int main(int __attribute__((__unused__)) argc, char *argv[])
 {
