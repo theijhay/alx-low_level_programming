@@ -20,23 +20,22 @@ void close_elf(int elf);
 /**
  * check_elf - Checks if a file is an ELF file.
  * @e_ident: A pointer to an array containing the ELF magic numbers.
- *
  * Description: If the file is not an ELF file - exit code 98.
  */
 void check_elf(unsigned char *e_ident)
 {
 	int index;
 
-		for (index = 0; index < 4; index++)
+	for (index = 0; index < 4; index++)
 	{
-		if (e_ident[index] != 127 &&
-		    e_ident[index] != 'E' &&
-		    e_ident[index] != 'L' &&
-		    e_ident[index] != 'F')
-		{
-			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
-			exit(98);
-		}
+	if (e_ident[index] != 127 &&
+	    e_ident[index] != 'E' &&
+	    e_ident[index] != 'L' &&
+	    e_ident[index] != 'F')
+	{
+	dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
+	exit(98);
+	}
 	}
 }
 
@@ -54,12 +53,12 @@ void print_magic(unsigned char *e_ident)
 
 	for (index = 0; index < EI_NIDENT; index++)
 	{
-		printf("%02x", e_ident[index]);
+	printf("%02x", e_ident[index]);
 
-		if (index == EI_NIDENT - 1)
-			printf("\n");
-		else
-			printf(" ");
+	if (index == EI_NIDENT - 1)
+	printf("\n");
+	else
+	printf(" ");
 	}
 }
 
@@ -237,16 +236,14 @@ void print_entry(unsigned long int e_entry, unsigned char *e_ident)
 	}
 
 	if (e_ident[EI_CLASS] == ELFCLASS32)
-		printf("%#x\n", (unsigned int)e_entry);
-
+	printf("%#x\n", (unsigned int)e_entry);
 	else
-		printf("%#lx\n", e_entry);
+	printf("%#lx\n", e_entry);
 }
 
 /**
  * close_elf - Closes an ELF file.
  * @elf: The file descriptor of the ELF file.
- *
  * Description: If the file cannot be closed - exit code 98.
  */
 void close_elf(int elf)
@@ -264,9 +261,7 @@ void close_elf(int elf)
  *        ELF header at the start of an ELF file.
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
- *
  * Return: 0 on success.
- *
  * Description: If the file is not an ELF File or
  *              the function fails - exit code 98.
  */
